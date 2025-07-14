@@ -19,15 +19,10 @@ rl.on('close', () => {
 });
 
 const solution = (input) => {
-  const arr = new Set(input);
+  const inputArr = new Set(input);
+  const range = Array.from({length : 30}, (_, i) => i + 1);
 
-  const missingNumbers = [];
-
-  for (let i = 1; i <= 30; i++) {
-    if (!arr.has(i)) {
-      missingNumbers.push(i);
-    }
-  }
+  const missingNumbers = range.filter((num) => !inputArr.has(num));
 
   console.log(missingNumbers.join('\n'));
 };
