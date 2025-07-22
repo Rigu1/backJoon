@@ -1,4 +1,5 @@
 using System;
+using System.Text;
 
 public class Program
 {
@@ -12,6 +13,8 @@ public class Program
         List<int[]> processionB = GetLine(rows);
 
         int[,] resultProcession = new int[rows, cols];
+        
+        var sb = new StringBuilder();
 
         for (int i = 0; i < rows; i++)
         {
@@ -21,11 +24,12 @@ public class Program
                 int elementB = processionB[i][j];
                 
                 resultProcession[i, j] = elementA + elementB;
-
-                Console.Write(resultProcession[i, j] + " ");
+                sb.Append(resultProcession[i, j] + " ");
             }
-            Console.WriteLine();
+            sb.AppendLine();
         }
+        
+        Console.Write(sb.ToString());
     }
 
     static List<int[]> GetLine(int len)
